@@ -1,0 +1,22 @@
+machine:
+  node:
+    version: 6.9.2
+  services:
+    - docker
+
+
+dependencies:
+  override:
+    - npm install
+
+test:
+  override:
+    - npm test
+
+
+deployment:
+  release:
+    tag: /v.*/
+    owner: fsilveira
+    commands:
+      - sh ./deploy_master.sh
